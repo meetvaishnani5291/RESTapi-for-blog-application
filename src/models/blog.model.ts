@@ -46,24 +46,6 @@ const blogSchema = new Schema<IBlog>({
       ref: 'User',
     },
   ],
-  // comments: [
-  //   {
-  //     text: {
-  //       type: String,
-  //       required: true,
-  //       maxlength: 500,
-  //     },
-  //     commenter: {
-  //       type: Schema.Types.ObjectId,
-  //       ref: 'User',
-  //       required: true,
-  //     },
-  //     createdAt: {
-  //       type: Date,
-  //       default: Date.now,
-  //     },
-  //   },
-  // ],
   createdAt: {
     type: Date,
     default: Date.now,
