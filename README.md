@@ -1,52 +1,164 @@
-[![N|Solid](https://iili.io/Hi9giog.png)](https://www.enverx.com/)
+# Blog Project - Git Documentation
 
-EnverX offers a simple and convenient platform to fund early-stage projects
-and trade future carbon credits.
+## Introduction
 
-## _Assginment For Backend Developer Role_
+This Git documentation provides an overview and usage instructions for the completed blog project. The project aims to provide a simple RESTful API for managing blog posts, categories, and user information.
 
-### Instructions
-``` diff
-- Fork this repository
-- Take a fresh `pull`
-- Create a `development` branch
-- `Push` the updated code after task completion
-Note: Make sure to add proper `commit` messages
-```
+## Getting Started
 
-### Task Requirements
-1. Create a RESTful API for a simple blog application.
-2. Use Node.js and Express.js as the backend framework.
-3. Implement CRUD (Create, Read, Update, Delete) operations for blog posts.
-4. Store the blog posts in a dB
-5. Include validation for the API endpoints to ensure data integrity.
-6. Implement error handling and return appropriate HTTP status codes.
-7. Use Git for version control and host the project on GitHub.
-8. Write clear and concise documentation on how to set up and use the API.
-9. Use Typescript to get a Bonus point.
+To get started with the blog project, follow these steps:
 
-### Functional Requirements
-1. Set up a new Node.js project and initialize it with a package.json file.
-2. Create the necessary Express.js routes and controllers for CRUD operations on blog posts.
+1. Clone the repository to your local machine using the following command:
+$git clone <repository_url>
 
-- `GET /posts` - Get all blog posts (Mandatory: Apply sorting based on created Date, blog name and filters based on category).
-- `GET /posts/:id` - Get a specific blog post by ID.
-- `POST /posts` - Create a new blog post.
-- `PUT /posts/:id` - Update an existing blog post.
-- `DELETE /posts/:id` - Delete a blog post.
+2. Navigate to the project directory:
+$cd blog-project
 
-3. Implement validation for the API endpoints to ensure the data is correct and complete.
-4. Handle errors gracefully and return appropriate HTTP status codes (e.g., 404 for not found, 500 for server errors, etc.).
-5. Test the API endpoints using a tool like Postman or cURL.
-6. Write a README.md file with instructions on setting up the project, running it, and using the API.
-7. Initialize a Git repository, commit your code regularly, and push it to GitHub.
-8. Optionally, include any additional features or improvements you think would enhance the API.
+3. Install the project dependencies using npm or yarn:
+$npm install
 
-### Timeline
-The estimated time to complete this assignment is 6-7 hours, but it may vary based on your familiarity and experience with the technologies.
+4. Create a `.env` file in the root of the project and set the required environment variables. Sample contents of `.env`:
+```` diff
+ENVIRONMENT=development
+SERVER_PORT=3002
+SERVER_HOST=localhost
+DATABASE_HOST=localhost
+DATABASE_PORT=27017
+DATABASE_NAME=blog-application-database
+JWT_SECRET=secret
+````
 
-### To Be Considered
-1. The submitted code should be plagiarism free otherwise your application will be disqualified
-2. Please complete the assignment and submit it to us by the submission deadline assigned to you. 
-3. follow the instructions carefully, as we will evaluate your code, documentation, and adherence to best practices. Once you have finished, please send us the GitHub repository link.
-4. If you have any questions or need further clarification, please don't hesitate to reach out to us at hr@enverx.com. We look forward to reviewing your work and discussing it with you in the next stage of the interview process.
+6. Run the application :
+$npm run start
+
+7. Access the API at `http://localhost:3002/api` (or the specified `SERVER_PORT` in the `.env` file).
+
+## Dependencies
+
+The blog project utilizes the following main dependencies:
+
+- Node.js (v14+)
+- MongoDB (v4.4.7) - Database for storing blog data
+- Joi (v17.4.0) - Schema validation for input data
+
+## Routes
+
+
+### Blog
+
+- **POST /blogs**
+  - Description: Create a new blog post.
+  - Request Body: JSON object containing blog post data. Must adhere to the `createBlogSchema` validation.
+  - Response: JSON object representing the created blog post.
+
+
+- **PUT /blogs/:id**
+  - Description: Update an existing blog post by its ID.
+  - Parameters: `id` (string) - ID of the blog post to update.
+  - Request Body: JSON object containing updated blog post data. Must adhere to the `updateBlogSchema` validation.
+  - Response: JSON object representing the updated blog post.
+
+
+- **DELETE /blogs/:id**
+  - Description: Delete an existing blog post by its ID.
+  - Parameters: `id` (string) - ID of the blog post to delete.
+  - Response: JSON object with a success message.
+
+
+- **GET /blogs**
+  - Description: Get all blog posts.
+  - Response: JSON array containing all blog posts.
+
+
+- **GET /blogs/:id**
+  - Description: Get a specific blog post by its ID.
+  - Parameters: `id` (string) - ID of the blog post to retrieve.
+  - Response: JSON object representing the specified blog post.
+
+- **GET /blogs/myblogs**
+  - Description: Get all blogs from a specific user.
+  - Request: No request body required. Supports pagination, sorting, and filtering through query parameters.
+  - Query Parameters:
+    - `page` (number, default: 1): Represents the page number of the results to retrieve.
+    - `limit` (number, default: 10): Specifies the number of records per page.
+    - `sortBy` (string, default: 'createdAt'): Represents the field by which the results will be sorted. Valid options are 'likes' and 'createdAt'.
+    - `sortOrder` (string, default: 'DESC'): Specifies the sort order, either 'ASC' (ascending) or 'DESC' (descending).
+    - `filterBy` (string, default: 'all'): Represents the field by which the results will be filtered. Valid options are 'tags', 'author', and 'title'.
+    - `keyword` (string): The keyword to use for filtering based on the chosen filterBy option.
+  - Response: JSON array containing the paginated and sorted blog posts based on the query parameters.
+
+
+
+### Users
+
+- **POST /users/register**: Register a new user.
+- **POST /users/login**: Authenticate and log in a user.
+- **GET /users**: Get the authenticated user's profile. (Requires authentication)
+  
+### Authentication
+
+The blog project uses JWT (JSON Web Tokens) for authentication. To access routes that require authentication (marked as "Requires authentication" above), you need to include the JWT token in the request headers as follows:
+
+Authorization: Bearer <jwt_token>
+
+Replace `<jwt_token>` with the actual JWT token received after successful user login or registration.
+
+
+## Pagination
+
+Pagination allows you to break down a large set of results into smaller chunks or pages. It prevents the server from returning all records at once, making it more efficient, especially when dealing with large datasets.
+
+In this blog project, pagination is implemented using the following query parameters:
+
+- `page`: Represents the page number of the results to retrieve. It defaults to 1 if not provided.
+- `limit`: Specifies the number of records per page. It defaults to 10 if not provided.
+
+### Example Usage:
+
+To fetch the second page of 20 blog records per page, you can make the following request:
+
+**GET /api/blogs?page=2&limit=20**
+
+## Sorting
+
+Sorting allows you to order the results based on a specific field or criteria. The blog project supports the following sorting options:
+
+- `sortBy`: Represents the field by which the results will be sorted. It defaults to 'createdAt' if not provided. The valid options are 'likes' and 'createdAt'.
+- `sortOrder`: Specifies the sort order, either 'ASC' (ascending) or 'DESC' (descending). It defaults to 'DESC' if not provided.
+
+### Example Usage:
+
+To fetch blogs sorted by the number of likes in ascending order, you can make the following request:
+
+**GET /api/blogs?sortBy=likes&sortOrder=ASC**
+
+## Filtering
+
+Filtering allows you to retrieve only the records that match specific criteria. The blog project supports the following filtering options:
+
+- `filterBy`: Represents the field by which the results will be filtered. It defaults to 'all' if not provided. The valid options are 'tags', 'author', and 'title'.
+
+### Example Usage:
+
+To fetch blogs that have the tag 'nodejs', you can make the following request:
+
+**GET /api/blogs?filterBy=tags&keyword=nodejs**
+
+## Combining Pagination, Sorting, and Filtering
+
+You can combine pagination, sorting, and filtering in a single request to get more refined results. For example:
+
+**GET /api/blogs?page=2&limit=10&sortBy=createdAt&sortOrder=DESC&filterBy=author&keyword=john**
+
+This request will fetch the second page of 10 blogs per page, sorted by the creation date (newest first), and filtered by the author name 'john'.
+
+By implementing pagination, sorting, and filtering, your blog API becomes more versatile, allowing users to fetch specific subsets of data based on their requirements.
+
+
+## Conclusion
+
+Congratulations! You have successfully set up and started the blog project. Refer to the provided routes documentation to interact with the API and manage blog posts, categories, and user profiles.
+
+Feel free to explore the codebase and make any improvements or customizations to suit your specific project requirements.
+
+Happy blogging! 🚀
