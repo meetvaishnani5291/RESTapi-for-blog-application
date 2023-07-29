@@ -18,13 +18,15 @@ $cd blog-project
 $npm install
 
 4. Create a `.env` file in the root of the project and set the required environment variables. Sample contents of `.env`:
-ENVIRONMENT=development\
-SERVER_PORT=3002\
-SERVER_HOST=localhost\
-DATABASE_HOST=localhost\
-DATABASE_PORT=27017\
-DATABASE_NAME=blog-application-database\
+```` diff
+ENVIRONMENT=development
+SERVER_PORT=3002
+SERVER_HOST=localhost
+DATABASE_HOST=localhost
+DATABASE_PORT=27017
+DATABASE_NAME=blog-application-database
 JWT_SECRET=secret
+````
 
 6. Run the application :
 $npm run start
