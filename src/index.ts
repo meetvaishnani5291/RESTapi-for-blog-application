@@ -13,6 +13,7 @@ async function assertDatabaseConnectionOk() {
   console.log(chalk.bgCyan.bold(`Checking database connection...`));
   try {
     mongoose.set("debug", true);
+    console.log(DATABASE_CONNECTION_STRING);
     await mongoose.connect(DATABASE_CONNECTION_STRING);
     console.log(chalk.bgGreen.bold("Database connection OK!"));
     setupDB();
