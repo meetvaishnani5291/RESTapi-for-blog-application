@@ -1,7 +1,8 @@
-import { verify } from "jsonwebtoken";
+import { JsonWebTokenError, verify } from "jsonwebtoken";
 import User from "../models/users.model";
 import { NextFunction, Response } from "express";
-import { CustomRequest } from "../interfaces/CustomRequest.interface";
+import { CustomRequest } from "../interfaces/customRequest.interface";
+import { NotFoundExpception, UnauthorizedException } from "../errors/customErrors";
 
 type token = {
   id: string;
@@ -9,7 +10,9 @@ type token = {
 
 const auth = async (req: CustomRequest, res: Response, next: NextFunction) => {
   try {
-    const token: string = req.header("authorization")!.replace("Bearer ", "");
+    if(req.isPublicRoute === true) return next();
+    
+    const token = req.header("authorization")!.replace("Bearer ", "");
     const decoded = verify(token, process.env.JWT_SECRET as string) as token;
     const user = await User.findOne(
       { _id: decoded.id },
@@ -19,13 +22,15 @@ const auth = async (req: CustomRequest, res: Response, next: NextFunction) => {
       }
     );
 
-    if (!user) return res.status(404).json({ message: "user not found" });
+    if (!user) throw new NotFoundExpception("User not found");
     req.user = user;
     next();
   } catch (err) {
-    res.status(401).json({
-      message: "Unauthorised",
-    });
+    if(err instanceof JsonWebTokenError) {
+      next(new UnauthorizedException(err.message))
+    }else{
+      next(err);
+    }
   }
 };
 

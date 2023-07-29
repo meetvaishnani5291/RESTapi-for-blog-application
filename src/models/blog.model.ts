@@ -1,12 +1,12 @@
 import { Schema, model, Document,Types } from 'mongoose';
 
-interface IBlog extends Document {
+ export interface IBlog extends Document {
   title: string;
   content: string;
-  author: Types.ObjectId; // Assuming it will be the user's ObjectId as a string
+  authorId: Types.ObjectId; 
   category: string[];
   tags: string[];
-  likes: string[]; // Assuming it will be an array of user's ObjectId as strings
+  likes: string[];
   createdAt: Date;
 }
 
@@ -21,18 +21,11 @@ const blogSchema = new Schema<IBlog>({
     type: String,
     required: true,
   },
-  author: {
+  authorId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
-  category: [
-    {
-      type: String,
-      trim: true,
-      maxlength: 50,
-    },
-  ],
   tags: [
     {
       type: String,
@@ -51,6 +44,7 @@ const blogSchema = new Schema<IBlog>({
     default: Date.now,
   },
 });
+blogSchema.index({ title: 'text', tags: 'text', content: 'text' }, { weights: { title: 5, tags: 2, content: 1 } });
 
 const Blog = model<IBlog>('Blog', blogSchema);
 

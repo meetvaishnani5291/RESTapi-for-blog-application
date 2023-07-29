@@ -1,15 +1,20 @@
 import { Request, Response, NextFunction } from 'express';
 import { ObjectSchema, ValidationError } from 'joi';
+import { BadRequestException } from '../errors/customErrors';
 
-const validateReuest = (schema: ObjectSchema) => {
+const validateRequest = (schema: ObjectSchema) => {
   return (req: Request, res: Response, next: NextFunction) => {
-    const { error } = schema.validate(req.body);
-    if (error) {
-      const errorMessage = error.details[0].message;
-      return res.status(400).json({ error: errorMessage });
+    try{
+      const { error } = schema.validate(req.body);
+      if (error) {
+        const errorMessage = error.details[0].message;
+        throw new BadRequestException(errorMessage);
+      }
+      next();
+    } catch (err) {
+      next(err);
     }
-    next();
   };
 };
 
-export default validateReuest;
+export default validateRequest;

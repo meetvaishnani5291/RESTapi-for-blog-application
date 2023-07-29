@@ -1,7 +1,9 @@
 import User from "../models/users.model";
 import { compare } from "bcryptjs";
-import { CustomRequest } from "../interfaces/CustomRequest.interface";
+import { CustomRequest } from "../interfaces/customRequest.interface";
 import { NextFunction, Response } from "express";
+import { LoginUser } from "../types/users.type";
+import { BadRequestException, UnauthorizedException } from "../errors/customErrors";
 
 const loginUser = async (
   req: CustomRequest,
@@ -9,20 +11,20 @@ const loginUser = async (
   next: NextFunction
 ) => {
   try {
-    const {email, password} = req.body;
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(401).json({ message: "Invalid Credentials" });
-    }
-    const isMatch = await compare(password, user.password);
+    const {email, password} = req.body as LoginUser;
 
-    if (!isMatch) {
-      return res.status(401).json({ message: "Invalid Credentials" });
-    }
+    const user = await User.findOne({ email });
+    if (!user) throw new UnauthorizedException("Invalid credentials");
+  
+    const isMatch = await compare(password, user.password);
+    if (!isMatch)  throw new UnauthorizedException("Invalid credentials");
 
     const token = await user.generateAuthToken();
-    res.status(200).json({ token });
+    res.status(200).json({access_token: token });
+
   } catch (err) {
+    console.log(err);
+    console.log("---------login-controller---------------");
     next(err);
   }
 };
@@ -36,20 +38,22 @@ const addUser = async (
     const newUser = req.body;
 
     const userExist = await User.findOne({ email: newUser.email });
-    if (userExist)
-      return res
-        .status(400)
-        .json({ message: "user with this email already exist" });
+    if (userExist) throw new BadRequestException( "user with this email already exist" );
 
     const user = await User.create(newUser);
     res.status(200).json(user);
+
   } catch (err) {
     next(err);
   }
 };
 
-const getUser = async (req: CustomRequest, res: Response) => {
-  res.status(200).json(req.user);
+const getUser = async (req: CustomRequest, res: Response,next : NextFunction) => {
+  try{
+    res.status(200).json(req.user);
+  }catch(err){
+    next(err);
+  }
 };
 
 const deleteUser = async (
@@ -58,7 +62,7 @@ const deleteUser = async (
   next: NextFunction
 ) => {
   try {
-    const userId = req.user!._id;
+    const userId :string = req.user!._id;
     await User.deleteOne({ _id: userId });
     res.status(200).json({ success: true });
   } catch (err) {

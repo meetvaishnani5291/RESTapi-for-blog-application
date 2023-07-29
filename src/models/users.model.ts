@@ -1,4 +1,4 @@
-import mongoose, { Document } from "mongoose";
+import mongoose, { Document, Schema, model } from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -10,7 +10,7 @@ export interface IUser extends Document {
 interface IUserMethods {
   generateAuthToken(): Promise<string>;
 }
-export const userSchema = new mongoose.Schema<IUser, {}, IUserMethods>({
+export const userSchema = new Schema<IUser, {}, IUserMethods>({
   username: {
     type: String,
     required: true,
@@ -42,4 +42,6 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-export default mongoose.model("User", userSchema);
+ const User = model("User", userSchema);
+
+ export default User;
