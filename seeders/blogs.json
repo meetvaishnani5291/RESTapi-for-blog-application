@@ -1,0 +1,527 @@
+[{
+  "_id": {
+    "$oid": "64c3a7f5aa9ffb82ad315145"
+  },
+  "title": "Sample Blog Post updated",
+  "content": "This is the content of the sample blog post. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis massa non erat dictum elementum. Quisque vestibulum feugiat odio, quis fermentum sapien tristique vel. Suspendisse egestas urna at mauris blandit, non ullamcorper est varius. Ut vehicula dui quis nisl egestas, nec feugiat quam finibus. Aliquam malesuada eros justo, eu laoreet nunc dictum nec. Integer et feugiat purus, vel sollicitudin lectus. Curabitur eu facilisis arcu.",
+  "authorId": {
+    "$oid": "64c3a2e76d4192405270bcc7"
+  },
+  "tags": [
+    "sample",
+    "blog",
+    "json",
+    "web"
+  ],
+  "likes": [],
+  "createdAt": {
+    "$date": "2023-07-28T11:35:17.149Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecf1"
+  },
+  "title": "Introduction to MongoDB",
+  "content": "This is a blog post about MongoDB...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfc"
+  },
+  "tags": [
+    "mongodb",
+    "database",
+    "nosql"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfd"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-29T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecf2"
+  },
+  "title": "JavaScript Basics",
+  "content": "A beginner's guide to JavaScript...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfd"
+  },
+  "tags": [
+    "javascript",
+    "programming",
+    "web"
+  ],
+  "likes": [],
+  "createdAt": {
+    "$date": "2023-07-28T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecf3"
+  },
+  "title": "React Fundamentals",
+  "content": "Learn the basics of React...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfc"
+  },
+  "tags": [
+    "react",
+    "frontend",
+    "web"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfd"
+    },
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfe"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-27T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecf4"
+  },
+  "title": "Node.js Best Practices",
+  "content": "Tips and tricks for Node.js development...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfe"
+  },
+  "tags": [
+    "node.js",
+    "backend",
+    "javascript"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfc"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-26T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecf5"
+  },
+  "title": "CSS Grid Layout",
+  "content": "An in-depth guide to CSS Grid...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfd"
+  },
+  "tags": [
+    "css",
+    "frontend",
+    "web"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfc"
+    },
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfe"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-25T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecf6"
+  },
+  "title": "Python for Data Analysis",
+  "content": "Analyzing data with Python...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfc"
+  },
+  "tags": [
+    "python",
+    "data",
+    "analysis"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfd"
+    },
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfe"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-24T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecf7"
+  },
+  "title": "RESTful API Design",
+  "content": "Best practices for designing RESTful APIs...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfe"
+  },
+  "tags": [
+    "api",
+    "web",
+    "backend"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfc"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-23T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecf8"
+  },
+  "title": "Machine Learning Basics",
+  "content": "Introduction to machine learning...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfd"
+  },
+  "tags": [
+    "machine learning",
+    "ai",
+    "data"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfe"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-22T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecf9"
+  },
+  "title": "Bootstrap 5 Tutorial",
+  "content": "Getting started with Bootstrap 5...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfc"
+  },
+  "tags": [
+    "bootstrap",
+    "frontend",
+    "web"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfd"
+    },
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfe"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-21T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecfa"
+  },
+  "title": "MongoDB Aggregation Pipeline",
+  "content": "Mastering MongoDB aggregation...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfe"
+  },
+  "tags": [
+    "mongodb",
+    "database",
+    "nosql"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfc"
+    },
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfd"
+    },
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfe"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-20T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecfb"
+  },
+  "title": "Vue.js for Beginners",
+  "content": "Start building web apps with Vue.js...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfd"
+  },
+  "tags": [
+    "vue.js",
+    "frontend",
+    "web"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfc"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-19T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecfc"
+  },
+  "title": "Python Web Scraping",
+  "content": "Scrape data from websites with Python...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfc"
+  },
+  "tags": [
+    "python",
+    "web scraping",
+    "data"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfd"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-18T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecfd"
+  },
+  "title": "REST vs. GraphQL",
+  "content": "Comparing REST and GraphQL APIs...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfe"
+  },
+  "tags": [
+    "api",
+    "web",
+    "backend"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfc"
+    },
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfd"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-17T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecfe"
+  },
+  "title": "Docker in Action",
+  "content": "Practical guide to Docker...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfd"
+  },
+  "tags": [
+    "docker",
+    "devops",
+    "container"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfe"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-16T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ecff"
+  },
+  "title": "Angular Essentials",
+  "content": "Getting started with Angular...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfc"
+  },
+  "tags": [
+    "angular",
+    "frontend",
+    "web"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfd"
+    },
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfe"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-15T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ed00"
+  },
+  "title": "SQL Query Optimization",
+  "content": "Improving SQL query performance...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfe"
+  },
+  "tags": [
+    "sql",
+    "database",
+    "performance"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfc"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-14T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ed01"
+  },
+  "title": "Git Workflow Best Practices",
+  "content": "Effective Git branching strategies...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfd"
+  },
+  "tags": [
+    "git",
+    "version control",
+    "devops"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfe"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-13T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ed02"
+  },
+  "title": "Python Data Visualization",
+  "content": "Creating stunning data visualizations with Python...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfc"
+  },
+  "tags": [
+    "python",
+    "data",
+    "visualization"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfd"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-12T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ed03"
+  },
+  "title": "Introduction to GraphQL",
+  "content": "Understanding GraphQL concepts...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfe"
+  },
+  "tags": [
+    "graphql",
+    "api",
+    "web"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfc"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-11T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ed04"
+  },
+  "title": "Secure Web Development",
+  "content": "Best practices for secure web development...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfd"
+  },
+  "tags": [
+    "security",
+    "web",
+    "backend"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfe"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-10T00:00:00.000Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49ddc7593540b2d36ed05"
+  },
+  "title": "Data Structures in Python",
+  "content": "Understanding Python data structures...",
+  "authorId": {
+    "$oid": "64c49d4ffe7cc9952efe4cfc"
+  },
+  "tags": [
+    "python",
+    "data",
+    "structures"
+  ],
+  "likes": [
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfd"
+    },
+    {
+      "$oid": "64c49d4ffe7cc9952efe4cfe"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-07-09T00:00:00.000Z"
+  },
+  "__v": 0
+}]

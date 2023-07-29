@@ -3,6 +3,7 @@ import User from "../models/users.model";
 import { NextFunction, Response } from "express";
 import { CustomRequest } from "../interfaces/customRequest.interface";
 import { NotFoundExpception, UnauthorizedException } from "../errors/customErrors";
+import config from "../config/envConfig";
 
 type token = {
   id: string;
@@ -13,7 +14,7 @@ const auth = async (req: CustomRequest, res: Response, next: NextFunction) => {
     if(req.isPublicRoute === true) return next();
     
     const token = req.header("authorization")!.replace("Bearer ", "");
-    const decoded = verify(token, process.env.JWT_SECRET as string) as token;
+    const decoded = verify(token, config.JWT_SECRET as string) as token;
     const user = await User.findOne(
       { _id: decoded.id },
       {

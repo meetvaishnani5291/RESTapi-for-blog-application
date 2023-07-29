@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "64c3600fa4ce656e1be1ac55"
+  },
+  "username": "bret",
+  "email": "sincere@aril.biz",
+  "password": "$2a$10$9umCnNT2LIEh8.9Cc1OseexvsHxfElCo6Da95nVxKrTHjGeZ3ZC2i",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c3a2e76d4192405270bcc7"
+  },
+  "username": "meet123",
+  "email": "meet@gmail.com",
+  "password": "$2a$10$R3.UvHoVfqgKG/qywtHAlumEdPKwdLOs/BSn3GMyIXGV50iOGHS/6",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49d4ffe7cc9952efe4cfc"
+  },
+  "username": "john_doe",
+  "email": "user1@gmail.com",
+  "password": "$2a$10$9CPMJ7iShFapQ.3K9iSMvergEeB9GOnY349vfciq42BlAgA8EMAMS",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49d4ffe7cc9952efe4cfd"
+  },
+  "username": "jane_smith",
+  "email": "user2@gmail.com",
+  "password": "$2a$10$OKMMQpU4PiWrWT5DJ3HE.uldCTrDggjxmjkodQnEPui5a3uKn9rZS",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64c49d4ffe7cc9952efe4cfe"
+  },
+  "username": "jane_smith",
+  "email": "user3@gmail.com",
+  "password": "$2a$10$HgoNPrs1ujnvcSwhIozU/.9XnfsU8nauQgdP4d0CT7lu.yS9AGe5a",
+  "__v": 0
+}]
