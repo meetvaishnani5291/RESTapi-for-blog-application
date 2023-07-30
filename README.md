@@ -8,13 +8,13 @@ This Git documentation provides an overview and usage instructions for the compl
 
 To get started with the blog project, follow these steps:
 
-1. Clone the repository to your local machine using the following command:
+1. Clone the repository to your local machine using the following command:\
 $git clone <repository_url>
 
-2. Navigate to the project directory:
+2. Navigate to the project directory:\
 $cd blog-project
 
-3. Install the project dependencies using npm or yarn:
+3. Install the project dependencies using npm or yarn:\
 $npm install
 
 4. Create a `.env` file in the root of the project and set the required environment variables. Sample contents of `.env`:
@@ -28,18 +28,24 @@ DATABASE_NAME=blog-application-database
 JWT_SECRET=secret
 ````
 
-6. Run the application :
+6. Run the application :\
 $npm run start
 
-7. Access the API at `http://localhost:3002/api` (or the specified `SERVER_PORT` in the `.env` file).
+7. Access the API at `http://localhost:3002/api` (or the specified `SERVER_PORT` in the `.env` file).\
+8. Here are some sample user credencials with already have some blogs posted.
+```` diff
+ user1 username : user1@gmail.com password : User1@123
+ user2 username : user2@gmail.com password : User2@123
+ user3 username : user3@gmail.com password : User3@123
+````
 
 ## Dependencies
 
 The blog project utilizes the following main dependencies:
 
 - Node.js (v14+)
+- mongoimport(v10+) - For insert seeders
 - MongoDB (v4.4.7) - Database for storing blog data
-- Joi (v17.4.0) - Schema validation for input data
 
 ## Routes
 
