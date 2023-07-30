@@ -1,4 +1,4 @@
-import { exec } from "child_process";
+import { exec  } from "child_process";
 import mongoose from "mongoose";
 import path from "path";
 import { promisify } from "util";
@@ -13,31 +13,36 @@ async function isCollectionEmpty(db: any, collectionName: string): Promise<boole
   return count === 0;
 }
 
-async function setupDB(): Promise<void> {
+async function importDataIfCollectionEmpty(collectionName: string): Promise<void> {
   try {
-    const db = mongoose.connection; // Use your existing Mongoose connection
+    const db = mongoose.connection; 
 
-    const targetCollectionName = "blogs"; // Replace with the actual collection name
-    const collectionIsEmpty = await isCollectionEmpty(db, targetCollectionName);
+    const collectionIsEmpty = await isCollectionEmpty(db, collectionName);
 
     if (collectionIsEmpty) {
-      const importFilePath = path.join(__dirname,"../", "seeders", "blogs.json");
+      const importFilePath = path.join(__dirname, "../", "../", "seeders", `${collectionName}.json`);
 
       // Prepare the mongoimport command
-      const mongoimportCommand = `mongoimport --host ${config.DATABASE_HOST} --port ${config.DATABASE_PORT} --db ${config.DATABASE_NAME} --collection ${targetCollectionName} --file ${importFilePath}`;
+      const mongoimportCommand = `mongoimport  --jsonArray --host ${config.DATABASE_HOST} --port ${config.DATABASE_PORT} --db ${config.DATABASE_NAME} --collection ${collectionName} --file ${importFilePath}`;
 
       // Execute the mongoimport command using the promisifiedExec function
-      const { stdout, stderr } = await promisifiedExec(mongoimportCommand);
+      const { stdout } = await promisifiedExec(mongoimportCommand);
 
-      console.log(chalk.bgGreen.bold("Data imported successfully!"));
+      console.log(chalk.bgGreen.bold(`Data imported successfully from ${collectionName}!`));
       console.log(stdout);
     } else {
-      console.log(chalk.bgGreen.bold(`Collection '${targetCollectionName}' is not empty. Skipping import.`));
+      console.log(chalk.bgGreen.bold(`Collection '${collectionName}' is not empty. Skipping import.`));
     }
-  } catch (error) {
+  } catch (error )  {
     console.error(chalk.bgRed("Error importing data:"));
-    console.log(error);
+    console.log((error as Error).message);
   }
+}
+
+
+const setupDB = async () =>{
+  await importDataIfCollectionEmpty("blogs");
+  await importDataIfCollectionEmpty("users");
 }
 
 export default setupDB;
